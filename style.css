@@ -1,0 +1,242 @@
+/* --- RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #003366; /* University Blue */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #555;
+    transition: color 0.3s;
+}
+
+nav ul li:hover {
+    color: #003366;
+}
+
+/* --- HERO SECTION & ENTRANCE ANIMATIONS --- */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Keyframe Animations for Hero */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- MAIN LAYOUT --- */
+.container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 20px;
+}
+
+.info-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* --- BUTTONS --- */
+.btn-main, .btn-secondary {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-main {
+    background: #FFD700; /* Gold/Yellow Accent */
+    color: #003366;
+}
+
+.btn-main:hover {
+    background: #e6c200;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+    background: #ddd;
+    color: #555;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #ccc;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* --- ADVANCED FORM ANIMATION CSS --- */
+
+.form-wrapper {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    overflow: hidden; /* Crucial: Hides steps sliding in/out */
+    position: relative;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 33.33%; /* Start at step 1 width */
+    background: #003366;
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#multi-step-form {
+    position: relative;
+    height: 350px; /* Fixed height ensures steps overlap correctly */
+}
+
+/* The actual form steps */
+.form-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth easing */
+    opacity: 0;
+}
+
+/* --- STATES CONTROLLED BY JS --- */
+
+/* The step currently being viewed */
+.form-step.active-step {
+    transform: translateX(0%);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Steps waiting to come in from the right */
+.form-step.next-step {
+    transform: translateX(150%); /* Start further out for dramatic effect */
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Steps that have passed to the left */
+.form-step.prev-step {
+    transform: translateX(-150%);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* --- Form Inputs Styling --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #003366;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #003366;
+    outline: none;
+}
+
+.form-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

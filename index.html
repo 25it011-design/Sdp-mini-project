@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admissions Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Apex University</div>
+        <ul>
+            <li>Programs</li>
+            <li>Campus Life</li>
+            <li>Admissions</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="anim-typewriter">Shape Your Future. Today.</h1>
+            <p class="fade-in-up">Applications for the Fall 2025-2026 intake are now open. Begin your journey with us.</p>
+            <a href="#admission-form-container" class="btn-main fade-in-up delay-1">Start Application</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="info-section">
+            <h2>The Admission Process</h2>
+            <p>Our streamlined 3-step process makes applying easier than ever.</p>
+        </section>
+
+        <div id="admission-form-container" class="form-wrapper">
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <form id="multi-step-form">
+                
+                <div class="form-step active-step" data-step="1">
+                    <h3>Step 1: Personal Details</h3>
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com">
+                    </div>
+                </div>
+
+                 <div class="form-step next-step" data-step="2">
+                    <h3>Step 2: Academic History</h3>
+                    <div class="input-group">
+                        <label for="highschool">Previous High School / College</label>
+                        <input type="text" id="highschool">
+                    </div>
+                    <div class="input-group">
+                        <label for="gpa">Current GPA</label>
+                        <input type="number" id="gpa" step="0.1" placeholder="e.g., 3.8">
+                    </div>
+                </div>
+
+                 <div class="form-step next-step" data-step="3">
+                    <h3>Step 3: Program Selection</h3>
+                    <div class="input-group">
+                        <label for="program">Intended Major</label>
+                        <select id="program">
+                            <option value="cs">Computer Science</option>
+                            <option value="eng">Engineering</option>
+                            <option value="bus">Business Administration</option>
+                            <option value="arts">Liberal Arts</option>
+                        </select>
+                    </div>
+                    <div class="submission-message">
+                        <p>Ready to submit your application for review?</p>
+                    </div>
+                </div>
+
+                <div class="form-controls">
+                    <button type="button" class="btn-secondary" id="prevBtn" disabled>Previous</button>
+                    <button type="button" class="btn-main" id="nextBtn">Next Step</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Apex University Admission System.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
